@@ -45,7 +45,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-  .search {
+  .search {  
     min-height: 50px;
   }
 </style>
