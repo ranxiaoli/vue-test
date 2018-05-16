@@ -33,7 +33,7 @@ export default {
   @import '~vux/src/styles/reset.less';
   .bottom-items {
     width: 100%;
-    min-height: 50px;
+    // min-height: 50px;
     position: fixed;
     bottom: 0;
     // .item {
