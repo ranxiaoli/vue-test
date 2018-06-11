@@ -87,6 +87,12 @@ export default {
       demo01_list: baseList,
       demo01_index: 0,
     }
+  },
+  methods: {
+    resultClick(){},
+    getResult() {
+
+    }
   }
 }
 </script>

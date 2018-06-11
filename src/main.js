@@ -7,6 +7,13 @@ import router from '@/router'
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
+// import Vue from 'vue'
+import { Tab, TabItem, Panel  } from 'vux'
+
+Vue.component('tab', Tab)
+Vue.component('tab-item', TabItem)
+Vue.component('panel', Panel)
+
 new Vue({
   el: '#app',
   router,
