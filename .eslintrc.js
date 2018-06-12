@@ -24,6 +24,12 @@ module.exports = {
     // allow async-await
     'generator-star-spacing': 'off',
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // allow 语句后面的分号
+    "semi": [0],
+    // 空行最多不能超过100行
+    "no-multiple-empty-lines": [0, {"max": 100}],
+     //关闭禁止混用tab和空格
+    "no-mixed-spaces-and-tabs": [0]
   }
 }
