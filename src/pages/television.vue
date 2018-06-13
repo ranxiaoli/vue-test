@@ -2,9 +2,7 @@
     <div class="img-uploader">
         <div ref="imgBox">
             <div class="img-uploader-preview" @click="uploadImgClick">
-                点击
-                <img src=""/>
-                
+                <img src="" ref="imgPreview"/>
             </div>
             <div>{{fileNum}}个文件|总大小为：{{fileSize}}</div>
         </div>
@@ -20,7 +18,8 @@ export default {
         return {
             inputId: '',
             fileSize: '',
-            fileNum: 0
+            fileNum: 0,
+            imgSrc: ''
         }
     },
     mounted: function() {
@@ -34,8 +33,29 @@ export default {
             let fileInput = this.$refs.fileinput.click();
         },
         handleImgs (files) {
-            let _files = files || this.$refs.fileinput.files;
-            this.updateSize(_files);
+            let _files;
+            if(files.length) {
+                _files = files;
+            } else {
+                _files = this.$refs.fileinput.files;
+            }
+            for (let i = 0; i < _files.length; i++) {
+                let file = _files[i];
+                let imgType = /^image\//;
+                if (!imgType.test(file.type)) {
+                    continue;
+                }
+                let img = this.$refs.imgPreview;
+                
+                let reader = new FileReader();
+                reader.onload = (function(aImg) {
+                    return function(e) {
+                        aImg.src = e.target.result;
+                    }
+                })(img);
+                reader.readAsDataURL(file);
+            }
+             this.updateSize(_files);
         },
         updateSize (files) {
             let nBytes = 0;
@@ -76,6 +96,10 @@ export default {
            height: 200px;
            width: 400px;
            border: solid 1px #ccc;
+           img {
+               height: 200px;
+               width: 400px;
+           }
        }
        &-file {
            position: absolute;
