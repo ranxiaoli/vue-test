@@ -102,8 +102,7 @@ export default {
            }
        }
        &-file {
-           position: absolute;
-           left: 9999px;
+           display: none;
        }
    }
 </style>
