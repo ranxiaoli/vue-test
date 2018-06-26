@@ -1,20 +1,18 @@
 <template>
-  <div style="margin-bottom: 45px;">
-    <!-- <div>
-      <x-header :left-options="{showBack: false}">推荐</x-header>
-    </div> -->
-    
-    <div class="search">
-      <search
+  <div class="r-home">  
+    <div class="r-home-search">
+      <search 
         @result-click="resultClick"
-          @on-change="getResult"
-          :results="results"
-          v-model="value"
-          auto-scroll-to-top
-          @on-focus="onFocus"
-          @on-cancel="onCancel"
-          @on-submit="onSubmit"
-          ref="search"></search>
+        @on-change="getResult"
+        :results="results"
+        v-model="value"
+        auto-scroll-to-top
+        @on-focus="onFocus"
+        @on-cancel="onCancel"
+        @on-submit="onSubmit"
+        ref="search"
+        >
+        </search>
     </div>
     <swiper :list="demo01_list" v-model="demo01_index" @on-index-change="demo01_onIndexChange"></swiper>
     <div class="recommended">
@@ -90,14 +88,19 @@ export default {
   },
   methods: {
     resultClick(){},
-    getResult() {
-
-    }
+    getResult() {},
+    onFocus () {},
+    onCancel () {},
+    onSubmit () {},
+    demo01_onIndexChange () {}
   }
 }
 </script>
 <style lang="less" scoped>
-  .search {  
-    min-height: 50px;
+  r-home {
+    margin-bottom: 50px;
+    &-search {
+      min-height: 50px;
+    }
   }
 </style>
